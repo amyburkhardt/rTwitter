@@ -4,7 +4,7 @@ library(WriteXLS)
 library(openxlsx)
 library(stringr)
 
-year <- "2017"
+year <- "2016"
 df <- read.csv(paste0(year,".csv"))
 df$text=str_replace_all(df$text,"[^[:graph:]]", " ") 
 df$permalink=str_replace_all(df$permalink,"[^[:graph:]]", " ") 
@@ -14,7 +14,7 @@ df$date <- as.POSIXct(df$date, format = "%m/%d/%Y")
 df <- df[!duplicated(df[,c("username","text")],fromLast=T),]
 
 #remove off-topic 
-list_words <- read.delim("remove_tweets.txt", header = FALSE)
+list_words <- read.delim("data/remove_tweets.txt", header = FALSE)
 
 for (tweet_word in as.list(as.matrix(list_words)))
 {
