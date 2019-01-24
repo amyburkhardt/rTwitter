@@ -1,6 +1,9 @@
+
 Nuggets'
 Nugget
 CJ 
+vwdCJ
+1D78HcJ
 opt in
 opt 1 
 opt us
@@ -69,6 +72,7 @@ Raptors
 Jazz 
 Wizards
 #NBA
+ NBA 
 april fools
 iggy
 google glass
@@ -261,7 +265,12 @@ blood test
 #DPC
 vegan
 #REI
-
+BBB 
+junk mail
+unsubscribe 
+#unsubscribe 
+#spam 
+export
 
 
 

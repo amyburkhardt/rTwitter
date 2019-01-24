@@ -1,12 +1,13 @@
 library(ggplot2)
+library(reshape2)
 
 test  <- data.frame(training_samp=c("Not Critical", "Pro-testing", "Encouraging"), 
-                    total_svm=c(1227,470,129), 
+                    total_svm=c(1227,470,128), 
                     total_nb=c(1913,2300,277), 
                     match_svm=c(360,168,68) , 
-                    match_nb=c(287,204,78),
+                    match_nb=c(318,239,78),
                     other_svm=c(0,6,32) , 
-                    other_nb=c(0,34,42))
+                    other_nb=c(0,35,42))
 
 
 
@@ -30,6 +31,9 @@ melted$variablef <- factor(melted$variable, levels=c(
 melted$traning_samplef = factor(melted$training_samp, 
                                 levels = c("Not Critical", "Pro-testing", "Encouraging"))
 
+tiff("~/Desktop/JREE-manuscript/figure2.tiff", units="in", width=10, height=5, res=300)
+#insert ggplot code
+
 ggplot(melted, aes(x = cat, y = value, fill = variablef,
                    ggplot(melted, aes(x = cat, y = value, 
                                       fill = variable ))))+ 
@@ -42,12 +46,12 @@ ggplot(melted, aes(x = cat, y = value, fill = variablef,
                              "match_svm",
                              "other_svm"),
                     labels = c("Tweets positively classified by model",
-                               "Tweets aligned to training set code",
-                               "Tweets that contain positive sentiment \n but are not aligned to training set code" 
+                               "Tweets align to training set code",
+                               "Tweets contain positive sentiment \n but do not align to training set code" 
                               )) +
   facet_grid(~ traning_samplef)+
 
-  theme(legend.position="bottom")
+  theme(legend.position="bottom", text = element_text(size=16))
 
-
+dev.off()
 
