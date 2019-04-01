@@ -12,9 +12,7 @@ library(dplyr)
 # create on long presentation of the graph 
 setwd("data")
 
-dates = cbind("2015")
-
-#dates = cbind("2013", "2014", "2015", "2016", "2017")
+dates = cbind("2013", "2014", "2015", "2016", "2017")
 all_dates <- setNames(data.frame(matrix(ncol = 10, nrow = 0)), c("username","date","retweets", "favorites", "text", "geo", "mentions", 
                                                                  "hashtags", "id", "permalink"))
 for (date in dates)
@@ -52,7 +50,7 @@ for (date in dates)
 dates = cbind("2013", "2014", "2015",
               "2016", "2017")
 
-tiff("~/Desktop/JREE-manuscript/figure2.tiff", units="in", width=10, height=2, res=300)
+tiff("~/Dropbox/jree-r-r/for-submission/Images/figure2.tiff", units="in", width=10, height=2, res=300)
 for (date in dates)
 
   {
@@ -65,13 +63,10 @@ for (date in dates)
 
   
   p <- ggplot(df, aes(date, ..count..)) + 
-    geom_histogram(bins = 30, col=I('black')) +
+    geom_histogram(bins = 25, col=I('black')) +
     theme_linedraw() +
     #theme_grey() + 
     xlab(NULL) +
-    #theme(
-          #axis.text.x=element_blank(),
-          #axis.ticks.x=element_blank())+
     ylim(0,6000)+
     ggtitle(date)+
     labs(x="", y="")
@@ -90,3 +85,4 @@ ggarrange(graph.2013, graph.2014, graph.2015, graph.2016, graph.2017,
           ncol = 5)
 
 dev.off()
+

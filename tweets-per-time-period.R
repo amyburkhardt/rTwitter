@@ -4,8 +4,8 @@ library(WriteXLS)
 library(openxlsx)
 library(stringr)
 
-year <- "2015"
-df <- read.csv(paste0(year,".csv"))
+year <- "2013"
+df <- read.csv(paste0("/Users/amyburkhardt/Dropbox/rTwitter/data/",year,".csv"))
 print("read in all data: ")
 print(nrow(df))
 df$X <- NULL
@@ -83,5 +83,5 @@ for (segment in time)
 
 }
 
-saveWorkbook(wb, file=paste0("tweet-results-by-month-",year,"_CONTENT_DRIFT.xlsx"), overwrite = TRUE)
+saveWorkbook(wb, file=paste0("tweet-results-by-month-",year,"_testrightnow.xlsx"), overwrite = TRUE)
 
